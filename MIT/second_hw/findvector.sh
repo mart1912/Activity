@@ -1,5 +1,2 @@
 #!/bin/bash
-find / -type f -name "*.cpp" 2>/dev/null
-if [[ -f "$file" ]] && grep -r "#include <vector>" "$file"; then
-	echo "$file"
-fi
+find ~ -name '*.cpp' -printf '"%p"\n' | xargs grep -l '#include <vector>'
