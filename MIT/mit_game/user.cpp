@@ -212,24 +212,7 @@ bool CheckFinish(Object &player, Scene &scene) {
 // Возможное решение может занимать примерно 16-20 строк.
 // Ваше решение может сильно отличаться.
 //
-void EnemyAI(Object &enemy, Scene &scene, float dt) {
-    Object *player = find_player(scene);
-
-    if (!player) {
-        return;
-    }
-
-    float dx = enemy.position.x - player->position.x;
-    float move = enemy.enemy.speed * dt;
-
-    if (dx > 0) {
-        enemy.position.x -= move;
-        enemy.player.direction = Direction::LEFT;
-    } else if (dx < 0) {
-        enemy.position.x += move;
-        enemy.player.direction = Direction::RIGHT;
-    }
-}
+void EnemyAI(Object &enemy, Scene &scene, float dt) {}
 
 // Задание PlayerControl.
 //
@@ -572,7 +555,7 @@ void DrawStatus(Context &ctx) {
         );
     }
 
-    std::string scoreText = "SCORE: " + std::to_string(ctx.score);
+    std::string scoreText = std::string("SCORE: ") + std::to_string(ctx.score);
     int scoreFontSize = 30;
     int scoreTextWidth = MeasureText(scoreText.c_str(), scoreFontSize);
     DrawText(
@@ -586,7 +569,7 @@ void DrawStatus(Context &ctx) {
     int totalSeconds = ctx.time / 1000;
     int minutes = totalSeconds / 60;
     int seconds = totalSeconds % 60;
-    std::string timeText = "TIME: " + (minutes < 10 ? "0" : "")
+    std::string timeText = std::string("TIME: ") + (minutes < 10 ? "0" : "")
                          + std::to_string(minutes) + ":"
                          + (seconds < 10 ? "0" : "") + std::to_string(seconds);
     int timeFontSize = 30;
