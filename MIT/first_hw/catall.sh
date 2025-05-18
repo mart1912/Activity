@@ -1,2 +1,2 @@
 #!/bin/bash
-find -type f -name "*.txt" -exec cat {} +
+find -type f -name "*.txt" | xargs cat
