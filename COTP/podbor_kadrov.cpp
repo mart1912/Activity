@@ -1,12 +1,18 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 int main() {
 	cin.tie(0);
 	ios::sync_with_stdio(false);
 	int n;
 	cin >> n;
-	long long y = 1ll * n * 1ll * (n - 1) * 1ll * (n - 2) * 1ll * (n - 3) * 1ll * (n - 4);
-	long long sum = 1ll * (y / 120 + y * 1ll * (n - 5) / 720 + y * 1ll * (n - 5) * 1ll * (n - 6) / 5040);
-	cout << sum;
+	vector<vector<long long>> c(n + 1, vector<long long>(n + 1));
+	for (int i = 0; i <= n; i++) {
+		c[i][i] = c[i][0] = 1;
+		for (int j = 1; j < i; j++) {
+			c[i][j] = c[i - 1][j] + c[i - 1][j - 1];
+		}
+	}
+	cout << c[n][5] + c[n][6] + c[n][7];
 	return 0;
 }
