@@ -26,7 +26,6 @@ int main() {
             delt[d] = f[d] - s[d];
         }
         int maxx = *max_element(begin(delt), end(delt));
-        cout << maxx << '\n';
         int k = 0;
         for (int y = 0; y < a; y++) {
             if (s[y] <= f[y]) {
