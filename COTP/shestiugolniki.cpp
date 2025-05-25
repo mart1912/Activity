@@ -5,7 +5,7 @@ int main() {
 	ios::sync_with_stdio(false);
 	int n;
 	cin >> n;
-	long long sum = n * (n + 1) / 2;
+	long long sum = 1ll * n * (n + 1) / 2;
 	cout << sum * 6 + 1;
 	return 0;
 }
